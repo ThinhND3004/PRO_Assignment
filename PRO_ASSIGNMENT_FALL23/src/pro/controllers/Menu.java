@@ -7,6 +7,7 @@ package pro.controllers;
 
 import java.util.ArrayList;
 import pro.models.I_Menu;
+import pro.utils.Utils;
 
 /**
  *
@@ -20,22 +21,27 @@ public class Menu extends ArrayList<String> implements I_Menu{
 
     @Override
     public void addItem(String str) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.add(str);
     }
 
     @Override
     public int getChoice() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return Utils.getNumber("Input your choice: ", 0, this.size());
     }
 
     @Override
     public void showMenu() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for (int i = 0; i < this.size(); i++)
+        {
+            System.out.println(this.get(i));
+        }
     }
 
     @Override
     public boolean confirmYesNo(String welcome) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        boolean result = false;
+        result = Utils.getBoolean(welcome);
+        return result;
     }
     
     

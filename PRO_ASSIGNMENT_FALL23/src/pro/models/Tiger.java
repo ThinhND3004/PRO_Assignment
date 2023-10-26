@@ -14,20 +14,22 @@ public class Tiger extends Animal{
     private boolean canRun;
     private boolean canGrowl;
     private boolean isDangerous;
-    private String diet;
+    private boolean diet;
     private boolean eatRawMeat;
 
-    public Tiger(boolean canRun, boolean canGrowl, boolean isDangerous, String diet, boolean eatRawMeat, String name, double weight, int leg, String color, boolean twoSwings) {
-        super(name, weight, leg, color, twoSwings);
+    public Tiger(boolean canRun, boolean canGrowl, boolean isDangerous, boolean diet, boolean eatRawMeat, String name, double weight, String color) {
+        super(name, weight, color);
         this.canRun = canRun;
         this.canGrowl = canGrowl;
         this.isDangerous = isDangerous;
         this.diet = diet;
         this.eatRawMeat = eatRawMeat;
         this.type = "Four-legged animals";
+        this.leg = 4;
+        this.twoSwings = false;
     }
 
-    public Tiger(boolean canRun, boolean canGrowl, boolean isDangerous, String diet, boolean eatRawMeat) {
+    public Tiger(boolean canRun, boolean canGrowl, boolean isDangerous, boolean diet, boolean eatRawMeat) {
         this.canRun = canRun;
         this.canGrowl = canGrowl;
         this.isDangerous = isDangerous;
@@ -79,11 +81,11 @@ public class Tiger extends Animal{
         this.isDangerous = isDangerous;
     }
 
-    public String getDiet() {
+    public boolean getDiet() {
         return diet;
     }
 
-    public void setDiet(String diet) {
+    public void setDiet(boolean diet) {
         this.diet = diet;
     }
 

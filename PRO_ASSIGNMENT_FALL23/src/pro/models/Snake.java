@@ -13,11 +13,13 @@ public class Snake extends Animal{
     private boolean canCreep;
     private boolean isPoisonous;
 
-    public Snake(boolean canCreep, boolean isPoisonous, String name, double weight, int leg, String color, boolean twoSwings) {
-        super(name, weight, leg, color, twoSwings);
+    public Snake(boolean canCreep, boolean isPoisonous, String name, double weight, String color) {
+        super(name, weight, color);
         this.canCreep = canCreep;
         this.isPoisonous = isPoisonous;
         this.type = "Zero-legged animals";
+        this.leg = 0;
+        this.twoSwings = false;
     }
 
     public Snake(boolean canCreep, boolean isPoisonous) {

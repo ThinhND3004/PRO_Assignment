@@ -5,17 +5,20 @@
  */
 package pro.models;
 
+import pro.controllers.AnimalList;
+
 /**
  *
  * @author ACER
  */
 public interface I_Animal {
-    void add();
-    void update();
-    void delete();
+    void add(String url);
+    boolean update(String url);
+    AnimalList delete(String url);
     void search(String name);
     void search(double weight);
     void show(String type);
-    void showALl();
+    void showALl(String url);
+
     
 }

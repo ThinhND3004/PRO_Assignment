@@ -14,12 +14,14 @@ public class Penguin extends Animal{
     private boolean canMakeSound;
     private boolean isCute;
 
-    public Penguin(boolean canWalk, boolean canMakeSound, boolean isCute, String name, double weight, int leg, String color, boolean twoSwings) {
-        super(name, weight, leg, color, twoSwings);
+    public Penguin(boolean canWalk, boolean canMakeSound, boolean isCute, String name, double weight, String color) {
+        super(name, weight, color);
         this.canWalk = canWalk;
         this.canMakeSound = canMakeSound;
         this.isCute = isCute;
         this.type = "Bipedal and Flightless animals";
+        this.leg = 2;
+        this.twoSwings = true;
     }
 
     public Penguin(boolean canWalk, boolean canMakeSound, boolean isCute) {

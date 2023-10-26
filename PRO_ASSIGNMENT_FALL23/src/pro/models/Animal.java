@@ -5,11 +5,13 @@
  */
 package pro.models;
 
+import java.io.Serializable;
+
 /**
  *
  * @author ACER
  */
-public abstract class Animal {
+public abstract class Animal implements Serializable{
     protected String type;
     protected String name;
     protected double weight;
@@ -25,6 +27,14 @@ public abstract class Animal {
         this.twoSwings = twoSwings;
     }
 
+    public Animal(String name, double weight, String color) {
+        this.name = name;
+        this.weight = weight;
+        this.color = color;
+    }
+
+    
+    
     public Animal() {
     }
 

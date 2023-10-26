@@ -5,7 +5,15 @@
  */
 package pro.utils;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
+import pro.controllers.AnimalList;
+import pro.models.Animal;
 
 /**
  *
@@ -163,6 +171,61 @@ public class Utils {
         System.out.println("===========================================");
     }
     
+    
+    public static boolean writeToFile(String url, AnimalList animalList) throws IOException
+    {
+        boolean result = false;
+        FileOutputStream file = new FileOutputStream(url);
+        ObjectOutputStream oos = new ObjectOutputStream(file);
+        try {
+            for(Animal animal : animalList)
+            {
+                oos.writeObject(animal);
+            }
+            result = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally
+        {
+            if(oos != null)
+            {
+                oos.close();
+            }
+            if(file != null)
+            {
+                file.close();
+            }
+        }
+        return result;
+    }
+    
+    public static AnimalList readFromFile(String url) throws FileNotFoundException, IOException
+    {
+        FileInputStream fis = new FileInputStream(url);
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        AnimalList readList = null;
+        try {
+            Animal animal = null;
+            readList = new AnimalList();
+            while (fis.available() > 0)
+            {
+                animal = (Animal) ois.readObject();
+                readList.add(animal);
+            }
+        } catch (Exception e) {
+        } finally
+        {
+            if(ois != null)
+            {
+                ois.close();
+            }
+            if(fis != null)
+            {
+                fis.close();
+            }
+        }
+        return readList;
+    }
 }    
     
     

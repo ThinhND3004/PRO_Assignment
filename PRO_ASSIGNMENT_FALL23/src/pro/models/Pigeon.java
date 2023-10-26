@@ -13,11 +13,13 @@ public class Pigeon extends Animal{
     private boolean isHeroic;
     private boolean canFly;
 
-    public Pigeon(boolean isHeroic, boolean canFly, String name, double weight, int leg, String color, boolean twoSwings) {
-        super(name, weight, leg, color, twoSwings);
+    public Pigeon(boolean isHeroic, boolean canFly, String name, double weight, String color) {
+        super(name, weight, color);
         this.isHeroic = isHeroic;
         this.canFly = canFly;
         this.type = "Bipedal And Flying Animals";
+        this.leg = 2;
+        this.twoSwings = true;
     }
 
     public Pigeon(boolean isHeroic, boolean canFly) {
