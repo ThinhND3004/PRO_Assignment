@@ -29,10 +29,6 @@ public class Penguin extends Animal{
     }
 
     
-
-    
-    
-    
     @Override
     public void display() {
         System.out.println("Penguin Information:");
