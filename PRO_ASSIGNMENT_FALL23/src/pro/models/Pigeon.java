@@ -13,7 +13,7 @@ public class Pigeon extends Animal{
     private boolean isHeroic;
     private boolean canFly;
 
-    public Pigeon(boolean isHeroic, boolean canFly, String name, double weight, String color) {
+    public Pigeon(boolean isHeroic, boolean canFly, String name, int weight, String color) {
         super(name, weight, color);
         this.isHeroic = isHeroic;
         this.canFly = canFly;
@@ -72,7 +72,7 @@ public class Pigeon extends Animal{
         return weight;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 

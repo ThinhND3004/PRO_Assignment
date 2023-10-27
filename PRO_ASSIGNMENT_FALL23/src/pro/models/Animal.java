@@ -14,12 +14,12 @@ import java.io.Serializable;
 public abstract class Animal implements Serializable{
     protected String type;
     protected String name;
-    protected double weight;
+    protected int weight;
     protected int leg;
     protected String color;
     protected boolean twoSwings;
 
-    public Animal(String name, double weight, int leg, String color, boolean twoSwings) {
+    public Animal(String name, int weight, int leg, String color, boolean twoSwings) {
         this.name = name;
         this.weight = weight;
         this.leg = leg;
@@ -27,7 +27,7 @@ public abstract class Animal implements Serializable{
         this.twoSwings = twoSwings;
     }
 
-    public Animal(String name, double weight, String color) {
+    public Animal(String name, int weight, String color) {
         this.name = name;
         this.weight = weight;
         this.color = color;
@@ -46,6 +46,18 @@ public abstract class Animal implements Serializable{
         System.out.println("Leg: " + leg);
         System.out.println("Color: " + color);
         System.out.println("Two Swings: " + twoSwings);
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getWeight() {
+        return weight;
     }
 
     

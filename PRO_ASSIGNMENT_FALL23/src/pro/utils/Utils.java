@@ -45,7 +45,7 @@ public class Utils {
             try {
                 System.out.print(welcome);
                 result = sc.nextInt();
-                if (result >= min && result <= max) {
+                if (result >= min || result <= max) {
                     check = false;
                 }
             } catch (Exception e) {
@@ -55,18 +55,18 @@ public class Utils {
     }
 
     public static double getNumber(String welcome, double min, double max) {
-        double result = 0;
+        Scanner scanner = new Scanner(System.in);
+        double result = 0.0;
         boolean check = true;
         sc = new Scanner(System.in);
         do {
             try {
-                System.out.print(welcome);
-                result = sc.nextDouble();
-                if (result >= min && result <= max) {
-                    check = false;
-                }
+                System.out.println(welcome);
+                result = scanner.nextDouble();
+                check = true;
             } catch (Exception e) {
-            }
+                scanner.nextLine();
+            } 
         } while (check);
         return result;
     }

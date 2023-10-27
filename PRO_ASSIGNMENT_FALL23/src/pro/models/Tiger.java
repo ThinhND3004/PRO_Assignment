@@ -17,7 +17,7 @@ public class Tiger extends Animal{
     private boolean diet;
     private boolean eatRawMeat;
 
-    public Tiger(boolean canRun, boolean canGrowl, boolean isDangerous, boolean diet, boolean eatRawMeat, String name, double weight, String color) {
+    public Tiger(boolean canRun, boolean canGrowl, boolean isDangerous, boolean diet, boolean eatRawMeat, String name, int weight, String color) {
         super(name, weight, color);
         this.canRun = canRun;
         this.canGrowl = canGrowl;
@@ -101,7 +101,7 @@ public class Tiger extends Animal{
         return weight;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 

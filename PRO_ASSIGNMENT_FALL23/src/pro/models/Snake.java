@@ -13,7 +13,7 @@ public class Snake extends Animal{
     private boolean canCreep;
     private boolean isPoisonous;
 
-    public Snake(boolean canCreep, boolean isPoisonous, String name, double weight, String color) {
+    public Snake(boolean canCreep, boolean isPoisonous, String name, int weight, String color) {
         super(name, weight, color);
         this.canCreep = canCreep;
         this.isPoisonous = isPoisonous;
@@ -77,7 +77,7 @@ public class Snake extends Animal{
         return weight;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 

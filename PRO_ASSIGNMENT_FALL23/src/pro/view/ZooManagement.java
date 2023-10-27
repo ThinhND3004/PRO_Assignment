@@ -65,16 +65,18 @@ public class ZooManagement {
                     } else System.out.println("Something wrong!");
                     break;
                 case 3: //delete animal
-                    
-                    AnimalList listAnimal = animal.delete(url);
-                    Utils.writeToFile(url, listAnimal);
-                    
+                    if (animal.delete(url)) {
+                        System.out.println("Delete successfully!");
+                    } else
+                    {
+                        System.out.println("Something wrong");
+                    }
                     break; 
                 case 4:
-                    
+                    animal.search(url);
                     break;
                 case 5://showAll
-                    animal.showALl(url);
+                    animal.show(url);
                     break;     
             }
         } while (cont);

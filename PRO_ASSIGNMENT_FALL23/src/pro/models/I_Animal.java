@@ -14,11 +14,12 @@ import pro.controllers.AnimalList;
 public interface I_Animal {
     void add(String url);
     boolean update(String url);
-    AnimalList delete(String url);
-    void search(String name);
-    void search(double weight);
-    void show(String type);
+    boolean delete(String url);
+    void searchByNam(String url);
+    void searchByWeight(String url);
+    void search(String url);
+    void showByType(String url);
     void showALl(String url);
-
+    void show(String url);
     
 }

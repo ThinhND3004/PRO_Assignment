@@ -14,7 +14,7 @@ public class Penguin extends Animal{
     private boolean canMakeSound;
     private boolean isCute;
 
-    public Penguin(boolean canWalk, boolean canMakeSound, boolean isCute, String name, double weight, String color) {
+    public Penguin(boolean canWalk, boolean canMakeSound, boolean isCute, String name, int weight, String color) {
         super(name, weight, color);
         this.canWalk = canWalk;
         this.canMakeSound = canMakeSound;
@@ -76,7 +76,7 @@ public class Penguin extends Animal{
         return weight;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 
