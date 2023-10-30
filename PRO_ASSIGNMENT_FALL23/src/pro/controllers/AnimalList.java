@@ -126,9 +126,9 @@ public class AnimalList extends ArrayList<Animal> implements I_Animal{
                     Animal updatingAnimal = (Animal) list.get(i);
                     if (updatingAnimal instanceof Tiger) {
                     Tiger t = (Tiger) updatingAnimal;
-                    String nameTiger = Utils.getString("Update your Tiger's name: ");
-                    int weightTiger = Utils.getNumber("Update your Tiger's weight: ", 0, 1000);
-                    String colorTiger = Utils.getString("Update your Tiger's color: ");
+                    String nameTiger = Utils.updateString("Update your Tiger's name: ", t.getName());
+                    int weightTiger = (int) Utils.updateNumber("Update your Tiger's weight: ", 0, 1000, t.getWeight());
+                    String colorTiger = Utils.updateString("Update your Tiger's color: ", t.getColor());
                     boolean canRun = Utils.getBoolean("Update Your Tiger Can Run: (Y/N)");
                     boolean canGrowl = Utils.getBoolean("Update Your Tiger Can Growl: (Y/N)");
                     boolean isDangerous = Utils.getBoolean("Update Your Tiger Is Dangerous: (Y/N)");
@@ -144,9 +144,9 @@ public class AnimalList extends ArrayList<Animal> implements I_Animal{
                     list.set(i, t);
                 } else if (updatingAnimal instanceof Penguin) {
                     Penguin p = (Penguin) updatingAnimal;
-                    String namePengiun = Utils.getString("Update your Pengiun's name: ");
-                    int weightPengiun = Utils.getNumber("Update your Pengiun's weight: ", 0, 1000);
-                    String colorPengiun = Utils.getString("Update your Pengiun's color: ");  
+                    String namePengiun = Utils.updateString("Update your Pengiun's name: ", p.getName());
+                    int weightPengiun = (int) Utils.updateNumber("Update your Pengiun's weight: ", 0, 1000, p.getWeight());
+                    String colorPengiun = Utils.updateString("Update your Pengiun's color: ", p.getColor());  
                     boolean canWalk = Utils.getBoolean("Update Your Pengiun Can Walk: (Y/N)");
                     boolean canMakeSound = Utils.getBoolean("Update Your Pengiun can make soung: (Y/N)");
                     boolean isCute = Utils.getBoolean("Update Your Pengiun is cute: (Y/N)");
@@ -157,11 +157,11 @@ public class AnimalList extends ArrayList<Animal> implements I_Animal{
                     p.setWeight(weightPengiun);
                     p.setColor(colorPengiun);
                     list.set(i, p);
-                } else if (updatingAnimal instanceof Penguin) {
+                } else if (updatingAnimal instanceof Pigeon) {
                     Pigeon p = (Pigeon) updatingAnimal;
-                    String namePigeon = Utils.getString("Update your Pigeon's name: ");
-                    int weightPigeon = Utils.getNumber("Update your Pigeon's weight: ", 0, 1000);
-                    String colorPigeon = Utils.getString("Update your Pigeon's color: ");
+                    String namePigeon = Utils.updateString("Update your Pigeon's name: ", p.getName());
+                    int weightPigeon = (int) Utils.updateNumber("Update your Pigeon's weight: ", 0, 1000, p.getWeight());
+                    String colorPigeon = Utils.updateString("Update your Pigeon's color: ", p.getColor());
                     boolean isHeroic = Utils.getBoolean("Update Your Pigeon is heroic: (Y/N)");
                     boolean canFly = Utils.getBoolean("Update Your Pigeon can fly: (Y/N)");
                     p.setCanFly(canFly);
@@ -173,9 +173,9 @@ public class AnimalList extends ArrayList<Animal> implements I_Animal{
                 } else
                 {
                     Snake s = (Snake) updatingAnimal;
-                    String name = Utils.getString("Update your Snake's name: ");
-                    int weight = Utils.getNumber("Update your Snake's weight: ", 0, 1000);
-                    String color = Utils.getString("Update your Snake's color: ");
+                    String name = Utils.updateString("Update your Snake's name: ", s.getName());
+                    int weight = (int) Utils.updateNumber("Update your Snake's weight: ", 0, 1000, s.getWeight());
+                    String color = Utils.updateString("Update your Snake's color: ", s.getColor());
                     boolean isCreep = Utils.getBoolean("Update Your Snake Can Creep: (Y/N)");
                     boolean isPoisonous = Utils.getBoolean("Update Your Snake has poisonois: (Y/N)");
                     s.setCanCreep(isCreep);
@@ -362,27 +362,27 @@ public class AnimalList extends ArrayList<Animal> implements I_Animal{
         try {
             AnimalList container = Utils.readFromFile(url);
             String name = Utils.getString("\nWhat is your animal's name?");
-            AnimalList resultContainer = null;
-            for(Animal animal : container)
-            {
-                if(animal.getName().equals(name))
-                {
+            AnimalList resultContainer = new AnimalList();
+
+            for (Animal animal : container) {
+                if (animal.getName().equals(name)) {
                     resultContainer.add(animal);
                 }
             }
-            if(resultContainer == null)
-            {
-                System.out.println("\nDo not have any animals with name: " + name);
-            } else
-            {
-                for(int i = 0; i < resultContainer.size(); i++)
-                {
+
+            if (resultContainer.isEmpty()) {
+                System.out.println("\nNo animals found with the name: " + name);
+            } else {
+                for (int i = 0; i < resultContainer.size(); i++) {
                     System.out.println("\n" + (i + 1) + ". ");
-                    Animal animalShow = resultContainer.get(i);
-                    animalShow.display();
+                    Animal animalToShow = resultContainer.get(i);
+                    animalToShow.display();
                 }
             }
+        } catch (IOException e) {
+            System.out.println("An error occurred while reading the file: " + e.getMessage());
         } catch (Exception e) {
+            System.out.println("An unexpected error occurred: " + e.getMessage());
         }
     }
 

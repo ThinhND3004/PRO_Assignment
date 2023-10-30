@@ -14,5 +14,4 @@ public interface I_Menu {
     int getChoice();
     void showMenu();
     boolean confirmYesNo(String welcome);
-
 }
